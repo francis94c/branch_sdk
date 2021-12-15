@@ -1,15 +1,39 @@
 # branch_sdk
 
-A new flutter plugin project.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-## Getting Started
+![Branch](https://github.com/francis94c/branch_sdk/blob/master/assets/images/branch.png?raw=true)
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+This plugin is a wrapper for the [Branch](https://branch.io) SDK.
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+It currently supports Android and iOS.
 
+## Getting started
+
+Add the below to your `pubspec.yaml` file.
+
+```yaml
+dependencies:
+  branch_sdk: ^1.0.0-alpha.1
+```
+
+and import with
+
+```dart
+import 'package:branch_sdk/branch_sdk.dart';
+```
+
+## Usage
+
+### Basic Integration
+
+To basically setup the Branch SDK you need to follow the below instructions based on platform of choice.
+
+#### iOS
+
+Add the below to your `Info.plist` file
+
+```xml
+<key>branch_key</key>
+<string>key_live_or_test</string>
+```
