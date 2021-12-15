@@ -65,3 +65,13 @@ You can obtain the live or test keys from your DashBoard. If you want to set the
 ```
 
 To support Universal Links, follow the instructions [here](https://help.branch.io/developers-hub/docs/ios-full-reference#support-universal-linking-ios-9-and-above)
+
+To verify your integration, do the following: Note, this work for iOS only.
+
+```dart
+import 'package:branch_sdk/branch_sdk.dart';
+
+BranchSdk.init();
+
+BranchSdk.validateSDKIntegration();
+```
