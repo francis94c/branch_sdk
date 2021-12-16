@@ -13,16 +13,32 @@ public class SwiftBranchSdkPlugin: NSObject, FlutterPlugin {
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         switch call.method {
         case "init":
-            Branch.getInstance()
+            initBranch(call, result)
         case "validateSDKIntegration":
             Branch.getInstance().validateSDKIntegration()
         case "getPlatformVersion":
             result("iOS " + UIDevice.current.systemVersion)
+        case "enableLogging":
+            Branch.getInstance().enableLogging()
+        case "setIdentity":
+            Branch.getInstance().setIdentity(call.arguments as? String) { (referral: [AnyHashable : Any]?, error: Error?) -> () in
+                result(true)
+            }
         case "logout":
             Branch.getInstance().logout()
         default:
             result(FlutterMethodNotImplemented)
         }
-        
+    }
+    
+    private func initBranch(_ call: FlutterMethodCall, _ result: FlutterResult) {
+        Branch.getInstance()
+        if let args = call.arguments as? Dictionary<String, Any> {
+            let debug = args["debug"] as? Bool
+            if (debug == true) {
+                Branch.getInstance().enableLogging()
+            }
+        }
+        result(true)
     }
 }
