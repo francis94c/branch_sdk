@@ -6,7 +6,12 @@
 
 This plugin is a wrapper for the [Branch](https://branch.io) SDK.
 
-It currently supports Android and iOS.
+## Features
+
+- Basic Integration.
+- Install Attribution.
+
+Note: This plugin is still in alpha and provides little interfacing with the Branch SDK at the moment. Rest assured, the plugin is still being actively developed. If you would want to add more interfaces with the Native SDK please read the contributing guidelines in `CONTRIBUTING.md`.
 
 ## Getting started
 
