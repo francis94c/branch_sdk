@@ -73,12 +73,18 @@ public class BranchSdkPlugin implements FlutterPlugin, MethodCallHandler, Activi
                 Branch.enableLogging();
                 break;
             case "setIdentity":
-                Branch.getInstance().setIdentity(call.arguments());
+                if (call.hasArgument("setIdentityCallback")) {
+                    Branch.getInstance().setIdentity(call.arguments(), (Branch.BranchReferralInitListener) (referringParams, error) -> {
+                        result.success(error == null);
+                    });
+                } else {
+                    Branch.getInstance().setIdentity(call.arguments());
+                }
                 break;
             case "logout":
                 if (call.hasArgument("logoutCallback")) {
                     Branch.getInstance().logout((loggedOut, error) -> {
-                        result.success(error != null);
+                        result.success(error == null);
                     });
                 } else {
                     Branch.getInstance().logout();
@@ -124,7 +130,7 @@ public class BranchSdkPlugin implements FlutterPlugin, MethodCallHandler, Activi
         }
         Branch.getAutoInstance(context);
         Branch.sessionBuilder(activity).withCallback((referringParams, error) -> {
-            result.success(true);
+            result.success(error == null);
         }).withData(null).init();
     }
 }
