@@ -41,8 +41,12 @@ class BranchSdk {
     }
   }
 
-  static void setIdentity(String identity) async {
-    await _channel.invokeMethod('setIdentity', identity);
+  /// Set User Identity.
+  static void setIdentity(String identity, {Function? onSetIdentity}) async {
+    bool result = await _channel.invokeMethod('setIdentity', identity);
+    if (result) {
+      onSetIdentity?.call();
+    }
   }
 
   /// Enable Branch SDK Logging.
@@ -57,7 +61,9 @@ class BranchSdk {
     ]);
   }
 
-  /// wrapper method to add the pre-install campaign analytics
+  /// wrapper method to add the pre-install campaign analytics.
+  /// Android Only.
+  /// [partner] Partner String
   static void setPreinstallPartner(String? partner) async {
     await _channel.invokeMethod('setPreinstallPartner', [
       {"preInstallPartner": partner}
