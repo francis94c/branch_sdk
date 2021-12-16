@@ -96,7 +96,13 @@ import 'package:branch_sdk/branch_sdk.dart';
 BranchSdk.init(debug: true); // Set debug to true to use test key and enable logging. Note io.branch.sdk.TestMode in AndroidManifest.xml must be set to true for debug:true to work.
 ```
 
-To verify your integration, do the following
+To guarantee the success of this function, ensure you've called the below in the app's main function
+
+```dart
+WidgetsFlutterBinding.ensureInitialized();
+```
+
+To verify your integration, do the following:
 
 ```dart
 import 'package:branch_sdk/branch_sdk.dart';
@@ -105,3 +111,13 @@ BranchSdk.init(debug: true);
 
 BranchSdk.validateSDKIntegration(); // Remember to remove this in production.
 ```
+
+## Additional information
+
+For a practical example, see the package example section.
+
+## Contributing
+
+Pull requests are welcome.
+
+Take a look at `CONTRIBUTING.md` on how to contribute.
