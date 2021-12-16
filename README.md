@@ -19,7 +19,7 @@ Add the below to your `pubspec.yaml` file.
 
 ```yaml
 dependencies:
-  branch_sdk: ^1.0.0-alpha.1
+  branch_sdk: ^1.0.0-alpha.2
 ```
 
 and run `flutter pub get`

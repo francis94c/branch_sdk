@@ -1,6 +1,6 @@
 name: branch_sdk
-description: A new flutter plugin project.
-version: 1.0.0-alpha.1
+description: Flutter plugin for the Branch SDK.
+version: 1.0.0-alpha.2
 repository: https://github.com/francis94c/branch_sdk.git
 
 environment:
