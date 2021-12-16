@@ -19,7 +19,7 @@ Add the below to your `pubspec.yaml` file.
 
 ```yaml
 dependencies:
-  branch_sdk: ^1.0.0-alpha.2
+  branch_sdk: ^1.0.0-alpha.3
 ```
 
 and run `flutter pub get`
@@ -38,7 +38,7 @@ import 'package:branch_sdk/branch_sdk.dart';
 
 To basically setup the Branch SDK you need to follow the below instructions based on platform of choice.
 
-#### iOS Setup
+### iOS Setup
 
 As described in the official docs [here](https://help.branch.io/developers-hub/docs/ios-full-reference#register-your-app), Add the below to your `Info.plist` file
 
@@ -75,7 +75,7 @@ You can obtain the live or test keys from your DashBoard. If you want to set the
 
 To support Universal Links, follow the instructions [here](https://help.branch.io/developers-hub/docs/ios-full-reference#support-universal-linking-ios-9-and-above)
 
-#### Android Setup
+### Android Setup
 
 Add the below to your `AndroidManifest.xml` file just within the `<application>` tag.
 
@@ -86,7 +86,7 @@ Add the below to your `AndroidManifest.xml` file just within the `<application>`
 <meta-data android:name="io.branch.sdk.TestMode" android:value="true" />
 ```
 
-#### Initializing
+## Initializing
 
 To initialize Branch do the following:
 
