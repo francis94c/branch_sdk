@@ -1,12 +1,25 @@
 package com.francis94c.branch_sdk;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import android.app.Activity;
 import android.content.Context;
 
+import org.json.JSONObject;
+
 import java.util.Objects;
 
+import io.branch.indexing.BranchUniversalObject;
+import io.branch.referral.BranchError;
+import io.branch.referral.util.BranchContentSchema;
+import io.branch.referral.util.BranchEvent;
+import io.branch.referral.util.CommerceEvent;
+import io.branch.referral.util.ContentMetadata;
+import io.branch.referral.util.CurrencyType;
+import io.branch.referral.util.Product;
+import io.branch.referral.util.ProductCategory;
+import io.branch.referral.validators.IntegrationValidator;
 import io.flutter.embedding.engine.plugins.FlutterPlugin;
 import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
@@ -45,13 +58,31 @@ public class BranchSdkPlugin implements FlutterPlugin, MethodCallHandler, Activi
                 result.success("Android " + android.os.Build.VERSION.RELEASE);
                 break;
             case "init":
-                init();
+                init(call, result);
                 break;
             case "setPreinstallCampaign":
                 Branch.getInstance().setPreinstallCampaign(Objects.requireNonNull(call.argument("preinstallCampaign")));
                 break;
             case "setPreinstallPartner":
                 Branch.getInstance().setPreinstallPartner(Objects.requireNonNull(call.argument("preInstallPartner")));
+                break;
+            case "validateSDKIntegration":
+                IntegrationValidator.validate(context);
+                break;
+            case "enableLogging":
+                Branch.enableLogging();
+                break;
+            case "setIdentity":
+                Branch.getInstance().setIdentity(call.arguments());
+                break;
+            case "logout":
+                if (call.hasArgument("logoutCallback")) {
+                    Branch.getInstance().logout((loggedOut, error) -> {
+                        result.success(true);
+                    });
+                } else {
+                    Branch.getInstance().logout();
+                }
                 break;
             default:
                 result.notImplemented();
@@ -65,12 +96,12 @@ public class BranchSdkPlugin implements FlutterPlugin, MethodCallHandler, Activi
 
     @Override
     public void onAttachedToActivity(@NonNull ActivityPluginBinding binding) {
-
+        activity = binding.getActivity();
     }
 
     @Override
     public void onDetachedFromActivityForConfigChanges() {
-
+        activity = null;
     }
 
     @Override
@@ -83,10 +114,17 @@ public class BranchSdkPlugin implements FlutterPlugin, MethodCallHandler, Activi
 
     }
 
-    private void init() {
-        // Branch logging for debugging
-        Branch.enableLogging();
-        // Branch object initialization
+    private void init(MethodCall call, Result result) {
+        if (call.hasArgument("debug") && call.argument("debug") != null) {
+            //noinspection ConstantConditions
+            if ((boolean) call.argument("debug")) {
+                Branch.enableTestMode();
+                Branch.enableLogging();
+            }
+        }
         Branch.getAutoInstance(context);
+        Branch.sessionBuilder(activity).withCallback((referringParams, error) -> {
+            result.success(true);
+        }).withData(null).init();
     }
 }
