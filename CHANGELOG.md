@@ -1,3 +1,4 @@
-## 0.0.1
+## 1.0.0-alpha.1
 
-* TODO: Describe initial release.
+* Basic Integration for iOS and Android.
+* Install Attribution.

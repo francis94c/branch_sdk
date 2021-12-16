@@ -11,7 +11,7 @@ This plugin is a wrapper for the [Branch](https://branch.io) SDK.
 - Basic Integration.
 - Install Attribution.
 
-Note: This plugin is still in alpha and provides little interfacing with the Branch SDK at the moment. Rest assured, the plugin is still being actively developed. If you would want to add more interfaces with the Native SDK please read the contributing guidelines in `CONTRIBUTING.md`.
+Note: This plugin is still in alpha and provides little interfacing with the Branch SDK at the moment. Rest assured, the plugin is still being actively developed.
 
 ## Getting started
 
@@ -119,5 +119,3 @@ For a practical example, see the package example section.
 ## Contributing
 
 Pull requests are welcome.
-
-Take a look at `CONTRIBUTING.md` on how to contribute.
