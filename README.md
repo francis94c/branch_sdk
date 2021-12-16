@@ -2,7 +2,7 @@
 
 [![Build](https://github.com/francis94c/branch_sdk/actions/workflows/main.yml/badge.svg)](https://github.com/francis94c/branch_sdk/actions/workflows/main.yml) [![codecov](https://codecov.io/gh/francis94c/branch_sdk/branch/master/graph/badge.svg?token=KCPSZJHEO9)](https://codecov.io/gh/francis94c/branch_sdk) [![pub package](https://img.shields.io/pub/v/branch_sdk.svg)](https://pub.dev/packages/branch_sdk) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-![Branch](https://github.com/francis94c/branch_sdk/blob/master/assets/images/branch.png?raw=true)
+[![Branch](https://github.com/francis94c/branch_sdk/blob/master/assets/images/branch.png?raw=true)](https://branch.io)
 
 This plugin is a wrapper for the [Branch](https://branch.io) SDK.
 
@@ -11,7 +11,7 @@ This plugin is a wrapper for the [Branch](https://branch.io) SDK.
 - Basic Integration.
 - Install Attribution.
 
-Note: This plugin is still in alpha and provides little interfacing with the Branch SDK at the moment. Rest assured, the plugin is still being actively developed.
+Note: This plugin is still in alpha and provides little interfacing with the Branch SDK at the moment. Rest assured, the plugin is still being actively developed. Provided interfaces/features are production ready.
 
 ## Getting started
 
