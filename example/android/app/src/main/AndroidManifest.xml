@@ -27,9 +27,9 @@
             </intent-filter>
         </activity>
         <!-- Branch init -->
-        <meta-data android:name="io.branch.sdk.BranchKey" android:value="production" />
+        <meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live" />
         <meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_ei2t1DTaYV8yaZu9KuSLXecpFAjGv4J4" />
-        <meta-data android:name="io.branch.sdk.TestMode" android:value="false" />
+        <meta-data android:name="io.branch.sdk.TestMode" android:value="true" />
         <!-- Set to true to use Branch_Test_Key (useful when simulating installs and/or switching between debug and production flavors) -->
         <!-- Don't delete the meta-data below.
              This is used by the Flutter tool to generate GeneratedPluginRegistrant.java -->
