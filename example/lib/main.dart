@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -22,8 +24,12 @@ class _MyAppState extends State<MyApp> {
   void initState() {
     super.initState();
     initPlatformState();
-    BranchSdk.init();
-    BranchSdk.validateSDKIntegration();
+    BranchSdk.init(
+      debug: true,
+      onInit: () {
+        BranchSdk.validateSDKIntegration();
+      },
+    );
   }
 
   // Platform messages are asynchronous, so we initialize in an async method.
