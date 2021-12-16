@@ -17,6 +17,10 @@ dependencies:
   branch_sdk: ^1.0.0-alpha.1
 ```
 
+and run `flutter pub get`
+
+For iOS you need to go further in to your `ios` folder and run `pod install`. You need to install `cocoapods` for that.
+
 and import with
 
 ```dart
@@ -29,7 +33,7 @@ import 'package:branch_sdk/branch_sdk.dart';
 
 To basically setup the Branch SDK you need to follow the below instructions based on platform of choice.
 
-#### iOS
+#### iOS Setup
 
 As described in the official docs [here](https://help.branch.io/developers-hub/docs/ios-full-reference#register-your-app), Add the below to your `Info.plist` file
 
@@ -66,12 +70,33 @@ You can obtain the live or test keys from your DashBoard. If you want to set the
 
 To support Universal Links, follow the instructions [here](https://help.branch.io/developers-hub/docs/ios-full-reference#support-universal-linking-ios-9-and-above)
 
-To verify your integration, do the following: Note, this work for iOS only.
+#### Android Setup
+
+Add the below to your `AndroidManifest.xml` file just within the `<application>` tag.
+
+```xml
+<meta-data android:name="io.branch.sdk.BranchKey" android:value="key_live_abc" />
+<meta-data android:name="io.branch.sdk.BranchKey.test" android:value="key_test_abc" />
+<!-- Set to use Live or Test Key -->
+<meta-data android:name="io.branch.sdk.TestMode" android:value="true" />
+```
+
+#### Initializing
+
+To initialize Branch do the following:
 
 ```dart
 import 'package:branch_sdk/branch_sdk.dart';
 
-BranchSdk.init();
+BranchSdk.init(debug: true); // Set debug to true to use test key and enable logging. Note io.branch.sdk.TestMode in AndroidManifest.xml must be set to true for debug:true to work.
+```
 
-BranchSdk.validateSDKIntegration();
+To verify your integration, do the following
+
+```dart
+import 'package:branch_sdk/branch_sdk.dart';
+
+BranchSdk.init(debug: true);
+
+BranchSdk.validateSDKIntegration(); // Remember to remove this in production.
 ```
