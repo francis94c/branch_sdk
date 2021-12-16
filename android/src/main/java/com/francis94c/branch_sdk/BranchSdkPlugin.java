@@ -78,7 +78,7 @@ public class BranchSdkPlugin implements FlutterPlugin, MethodCallHandler, Activi
             case "logout":
                 if (call.hasArgument("logoutCallback")) {
                     Branch.getInstance().logout((loggedOut, error) -> {
-                        result.success(true);
+                        result.success(error != null);
                     });
                 } else {
                     Branch.getInstance().logout();
