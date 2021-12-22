@@ -8,3 +8,7 @@
 * Changes to README.md
 * Updated description.
 * Adjusted Flutter SDK constraint.
+
+## 1.0.0-alpha.4
+
+* Fixed issue where live key was always being used.
