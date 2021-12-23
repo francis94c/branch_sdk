@@ -12,3 +12,7 @@
 ## 1.0.0-alpha.4
 
 * Fixed issue where live key was always being used.
+
+## 1.0.0-alpha.5
+
+* Follow up to the last release.

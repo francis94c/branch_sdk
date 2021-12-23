@@ -58,12 +58,11 @@ public class SwiftBranchSdkPlugin: NSObject, FlutterPlugin {
      Initialize the Branch SDK.
      */
     private func initBranch(_ call: FlutterMethodCall, _ result: @escaping FlutterResult) {
-        Branch.getInstance()
         if let args = call.arguments as? Dictionary<String, Any> {
             let debug = args["debug"] as? Bool
             if (debug == true) {
-                Branch.getInstance().enableLogging()
                 Branch.setUseTestBranchKey(true)
+                Branch.getInstance().enableLogging()
             }
         }
         Branch.getInstance().initSession(launchOptions: latchedLaunchOptions) { (params, error) in
