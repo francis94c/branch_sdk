@@ -22,6 +22,8 @@ rootProject.allprojects {
 apply plugin: 'com.android.library'
 
 android {
+    namespace 'com.francis94c.branch_sdk'
+
     compileSdkVersion 30
 
     compileOptions {

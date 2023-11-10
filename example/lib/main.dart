@@ -26,8 +26,8 @@ class _MyAppState extends State<MyApp> {
     initPlatformState();
     BranchSdk.init(
       debug: true,
-      onInit: () {
-        BranchSdk.validateSDKIntegration();
+      onInit: () async {
+        print(await BranchSdk.validateSDKIntegration());
       },
     );
   }
