@@ -24,3 +24,7 @@
 ## 1.0.0-alpha.7
 
 - Updated Android Min SDK
+
+## 1.0.0-alpha.8
+
+- Updated Android Compile SDK

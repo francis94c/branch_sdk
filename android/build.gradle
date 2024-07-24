@@ -24,7 +24,7 @@ apply plugin: 'com.android.library'
 android {
     namespace 'com.francis94c.branch_sdk'
 
-    compileSdkVersion 30
+    compileSdkVersion 34
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8

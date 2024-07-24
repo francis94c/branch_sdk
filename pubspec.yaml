@@ -1,6 +1,6 @@
 name: branch_sdk
 description: A flutter plugin for the Branch SDK(https://branch.io). Branch provides you traffic or install attribution, deep linking and more.
-version: 1.0.0-alpha.7
+version: 1.0.0-alpha.8
 repository: https://github.com/francis94c/branch_sdk.git
 
 environment:
